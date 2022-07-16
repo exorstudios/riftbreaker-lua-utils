@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lrdb",
+            "request": "attach",
+            "host": "localhost",
+            "port": 21110,
+            "name": "The Riftbreaker - Attach",
+            "sourceRoot": "${workspaceFolder}"
+        }
+    ]
+}
