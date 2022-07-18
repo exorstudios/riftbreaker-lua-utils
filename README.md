@@ -2,7 +2,7 @@
 
 Example usage
 ```
-local Research = require("lua/services/research.lua")
+local Research = require("lua/services/research_utils.lua")
 
 local nodes = Research:FindResearchNodesWithBlueprintAward( "items/xyz_item" )
 ```
