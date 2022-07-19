@@ -57,7 +57,7 @@ function Mech:SetDefaultWeapon( mech_entity, weapon_item_bp )
         end
     else
         mechcomponent = INVALID_ID
-        LogService:Log("Mech:SetDefaultWeapon: Error - Weapon BP with _item required ")
+        LogService:Log("Mech:SetDefaultWeapon: Error - Weapon BP with _item required")
     end
 end
 
