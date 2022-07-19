@@ -3,17 +3,18 @@ require("lua/utils/numeric_utils.lua")
 
 local Projectile = {}
 
+local EMPTY_EFFECT = ""
+
 function Projectile:GetWorldHitEffect( entity )
     -- SenorRagequit 19.07.22
     local projectileammocomponent = reflection_helper( EntityService:GetComponent( entity, "ProjectileAmmoComponent") )
     if projectileammocomponent ~= nil then
         local worldhiteffect = projectileammocomponent.on_world_hit_effect
         return worldhiteffect
-    else
-        projectileammocomponent = INVALID_ID
-        LogService:Log("Projectile:GetWorldHitEffect: Error - Invalid projectileammocomponent")
-        return projectileammocomponent
     end
+
+    LogService:Log("Projectile:GetWorldHitEffect: Error - Invalid projectileammocomponent")
+    return INVALID_ID
 end
 
 function Projectile:GetResistedHitEffect( entity )
@@ -22,11 +23,10 @@ function Projectile:GetResistedHitEffect( entity )
     if projectileammocomponent ~= nil then
         local resistedhiteffect = projectileammocomponent.on_resisted_hit_effect
         return resistedhiteffect
-    else
-        projectileammocomponent = INVALID_ID
-        LogService:Log("Projectile:GetResistedHitEffect: Error - Invalid projectileammocomponent")
-        return projectileammocomponent
     end
+
+    LogService:Log("Projectile:GetResistedHitEffect: Error - Invalid projectileammocomponent")
+    return EMPTY_EFFECT
 end
 
 function Projectile:GetShieldHitEffect( entity )
@@ -35,11 +35,10 @@ function Projectile:GetShieldHitEffect( entity )
     if projectileammocomponent ~= nil then
         local shieldhiteffect = projectileammocomponent.on_shield_hit_effect
         return shieldhiteffect
-    else
-        projectileammocomponent = INVALID_ID
-        LogService:Log("Projectile:GetShieldHitEffect: Error - Invalid projectileammocomponent")
-        return projectileammocomponent
     end
+
+    LogService:Log("Projectile:GetShieldHitEffect: Error - Invalid projectileammocomponent")
+    return EMPTY_EFFECT
 end
 
 function Projectile:GetEnemyHitEffect( entity )
@@ -48,11 +47,10 @@ function Projectile:GetEnemyHitEffect( entity )
     if projectileammocomponent ~= nil then
         local enemyhiteffect = projectileammocomponent.on_enemy_hit_effect
         return enemyhiteffect
-    else
-        projectileammocomponent = INVALID_ID
-        LogService:Log("Projectile:GetEnemyHitEffect: Error - Invalid projectileammocomponent")
-        return projectileammocomponent
     end
+
+    LogService:Log("Projectile:GetEnemyHitEffect: Error - Invalid projectileammocomponent")
+    return EMPTY_EFFECT
 end
 
 function Projectile:GetTargetId( entity )
@@ -60,12 +58,11 @@ function Projectile:GetTargetId( entity )
     local projectileammocomponent = reflection_helper( EntityService:GetComponent( entity, "ProjectileAmmoComponent") )
     if projectileammocomponent ~= nil then
         local targetid = projectileammocomponent.target
-        return targetid
-    else
-        projectileammocomponent = INVALID_ID
-        LogService:Log("Projectile:GetTargetId: Error - Invalid projectileammocomponent")
-        return projectileammocomponent
+        return targetid.id
     end
+
+    LogService:Log("Projectile:GetTargetId: Error - Invalid projectileammocomponent")
+    return INVALID_ID
 end
 
 return Projectile
