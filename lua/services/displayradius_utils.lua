@@ -14,7 +14,7 @@ function DisplayRadius:GetMinRadius( entity )
     end
 
     LogService:Log("DisplayRadius:GetMinRadius: Error - Invalid DisplayRadiusComponent")
-    return EMPTY_EFFECT
+    return 0.0
 end
 
 function DisplayRadius:SetMinRadius( entity, radius )
@@ -62,7 +62,7 @@ function DisplayRadius:GetMaxRadius( entity )
     end
 
     LogService:Log("DisplayRadius:GetMaxRadius: Error - Invalid DisplayRadiusComponent")
-    return EMPTY_EFFECT
+    return 0.0
 end
 
 function DisplayRadius:SetMaxRadius( entity, radius )
