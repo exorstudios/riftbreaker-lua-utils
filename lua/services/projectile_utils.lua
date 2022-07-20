@@ -14,7 +14,7 @@ function Projectile:GetWorldHitEffect( entity )
     end
 
     LogService:Log("Projectile:GetWorldHitEffect: Error - Invalid projectileammocomponent")
-    return INVALID_ID
+    return EMPTY_EFFECT
 end
 
 function Projectile:GetResistedHitEffect( entity )
