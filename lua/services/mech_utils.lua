@@ -3,6 +3,11 @@ require("lua/utils/numeric_utils.lua")
 
 local Mech = {}
 
+local EMPTY_ENT_ID = INVALID_ID
+local EMPTY_EFFECT = ""
+local EMPTY_NUM = 0.0
+
+
 function Mech:GetCurrentSpeed( mech_entity )
     -- SenorRagequit 18.07.22
     local mechcomponent = reflection_helper( EntityService:GetComponent( mech_entity, "MechComponent") )
@@ -12,7 +17,7 @@ function Mech:GetCurrentSpeed( mech_entity )
     end
 
     LogService:Log("Mech:GetCurrentSpeed: Error - Invalid mechcomponent")
-    return 0.0
+    return EMPTY_NUM
 end
 
 function Mech:SetCurrentSpeed( mech_entity, speed )
@@ -37,7 +42,7 @@ function Mech:GetDefaultWeapon( mech_entity )
         return defaultweapon
     end
     LogService:Log("Mech:GetDefaultWeapon: Error - Invalid mechcomponent")
-    return ""
+    return EMPTY_EFFECT
 end
 
 function Mech:SetDefaultWeapon( mech_entity, weapon_item_bp )

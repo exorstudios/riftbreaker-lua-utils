@@ -3,7 +3,10 @@ require("lua/utils/numeric_utils.lua")
 
 local DisplayRadius = {}
 
+local EMPTY_ENT_ID = INVALID_ID
 local EMPTY_EFFECT = ""
+local EMPTY_NUM = 0.0
+
 
 function DisplayRadius:GetMinRadius( entity )
     -- SenorRagequit 19.07.22
@@ -14,7 +17,7 @@ function DisplayRadius:GetMinRadius( entity )
     end
 
     LogService:Log("DisplayRadius:GetMinRadius: Error - Invalid DisplayRadiusComponent")
-    return 0.0
+    return EMPTY_NUM
 end
 
 function DisplayRadius:SetMinRadius( entity, radius )
@@ -62,7 +65,7 @@ function DisplayRadius:GetMaxRadius( entity )
     end
 
     LogService:Log("DisplayRadius:GetMaxRadius: Error - Invalid DisplayRadiusComponent")
-    return 0.0
+    return EMPTY_NUM
 end
 
 function DisplayRadius:SetMaxRadius( entity, radius )

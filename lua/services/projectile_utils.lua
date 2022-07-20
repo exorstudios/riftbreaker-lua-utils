@@ -3,7 +3,10 @@ require("lua/utils/numeric_utils.lua")
 
 local Projectile = {}
 
+local EMPTY_ENT_ID = INVALID_ID
 local EMPTY_EFFECT = ""
+local EMPTY_NUM = 0.0
+
 
 function Projectile:GetWorldHitEffect( entity )
     -- SenorRagequit 19.07.22
@@ -62,7 +65,7 @@ function Projectile:GetTargetId( entity )
     end
 
     LogService:Log("Projectile:GetTargetId: Error - Invalid projectileammocomponent")
-    return INVALID_ID
+    return EMPTY_ENT_ID
 end
 
 return Projectile
