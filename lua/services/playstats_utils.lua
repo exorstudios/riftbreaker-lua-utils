@@ -189,11 +189,4 @@ function PlayStats:GetStatName( stat_type )
     return names[ stat_type + 1]
 end
 
-
-
-
-
-
-
-
 return PlayStats
