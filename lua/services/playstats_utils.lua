@@ -142,8 +142,8 @@ function PlayStats:FindStatName( searched_stat_name )
         local stat_name = self:GetStatName( stat.key )
         
         if stat_name == searched_stat_name then
-            local SumEnemyUnitsKilled = stat.value.total
-            return SumEnemyUnitsKilled
+            local stat_total = stat.value.total
+            return stat_total
         end
     end
 end
